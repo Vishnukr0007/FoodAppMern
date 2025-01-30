@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Menu.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { Base_Url } from '../../Urls';
+import { BASE_URL } from "../../Urls";
+
 function Menu() {
   const [items, setItems] = useState([]); // Store menu items
   const [categories, setCategories] = useState([]); // Store categories
@@ -15,16 +16,14 @@ function Menu() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${Base_Url}/api/menu`); // Adjust API URL if needed
+        const response = await axios.get(`${BASE_URL}/api/menu`); // Adjust API URL if needed
         const menuItems = response.data.menuItems; // Ensure backend returns menuItems array
-
         setCategories(menuItems);
 
         // Default to the first category
         if (menuItems.length > 0) {
           setSelectedCategory(menuItems[0].name);
           setSelectedMenuId(menuItems[0]._id);
-  
         }
         setError('');
         setLoading(false);
@@ -42,12 +41,11 @@ function Menu() {
   useEffect(() => {
     const fetchMenuItems = async () => {
       if (!selectedMenuId) return; // Avoid making requests if no ID is selected
-  
+
       try {
         setLoading(true);
-        
-        const response = await axios.get(`${Base_Url}/api/menu/${selectedMenuId}/items`);
-        
+
+        const response = await axios.get(`${BASE_URL}/api/menu/${selectedMenuId}/items`);
         setItems(response.data.items || []);
         setError('');
       } catch (err) {
@@ -69,10 +67,8 @@ function Menu() {
       }
     };
 
-  
     fetchMenuItems();
   }, [selectedMenuId]);
-  
 
   return (
     <div className="Listmenu">
@@ -83,10 +79,11 @@ function Menu() {
             key={category._id}
             className={`buttons ${selectedCategory === category.name ? 'active' : ''}`}
             onClick={() => {
-              console.log("Selected Category:", category.name, "Selected Menu ID:", category._id);
               setSelectedCategory(category.name); // Update selected category
               setSelectedMenuId(category._id); // Update selected menu ID
             }}
+            size="lg"
+            block
           >
             {category.name}
           </Button>
@@ -95,7 +92,7 @@ function Menu() {
 
       <Container>
         <Row className="justify-content-center">
-          <Col md={6} className="box p-4">
+          <Col md={8} sm={12} xs={12} className="box p-4">
             {loading ? (
               <p className="text-white">Loading...</p>
             ) : error ? (
@@ -104,9 +101,11 @@ function Menu() {
               <ul className="list-unstyled">
                 {items.map((item) => (
                   <li key={item._menuId} className="menu-item">
-                    <span className="item-name text-white">{item.name}</span>
-                    <h6>{item.description}</h6>
-                    <span className="price text-white">${item.price}</span>
+                    <div className="item-info">
+                      <span className="item-name text-white">{item.name}</span>
+                      <h6>{item.description}</h6>
+                      <span className="price text-white">${item.price}</span>
+                    </div>
                   </li>
                 ))}
               </ul>

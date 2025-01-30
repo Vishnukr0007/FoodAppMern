@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Menu.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { BASE_URL } from "../../../Urls";
+import { Base_Url } from "../../Urls";
 
 function Menu() {
   const [items, setItems] = useState([]); // Store menu items
@@ -16,7 +16,7 @@ function Menu() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/menu`); // Adjust API URL if needed
+        const response = await axios.get(`${Base_Url}/api/menu`); // Adjust API URL if needed
         const menuItems = response.data.menuItems; // Ensure backend returns menuItems array
         setCategories(menuItems);
 
@@ -45,7 +45,7 @@ function Menu() {
       try {
         setLoading(true);
 
-        const response = await axios.get(`${BASE_URL}/api/menu/${selectedMenuId}/items`);
+        const response = await axios.get(`${Base_Url}/api/menu/${selectedMenuId}/items`);
         setItems(response.data.items || []);
         setError('');
       } catch (err) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Menu.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { BASE_URL } from "../../Urls";
+import { BASE_URL } from "../../../Urls";
 
 function Menu() {
   const [items, setItems] = useState([]); // Store menu items

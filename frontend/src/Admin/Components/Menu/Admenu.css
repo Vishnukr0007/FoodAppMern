@@ -1,0 +1,21 @@
+/* Menu.css */
+.card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .card-img {
+    height: 100px;
+    object-fit: cover;
+  }
+  

@@ -1,0 +1,39 @@
+/* Blue border for the entire list */
+.custom-list {
+    border: 2px solid blue;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures child items stay within rounded border */
+  }
+  
+  /* Styling for individual rows */
+  .custom-table-row {
+    background-color: rgba(0, 0, 255, 0.1); /* Light blue background */
+    color: white; /* White text */
+    border-bottom: 1px solid blue; /* Blue border between rows */
+  }
+  
+  /* Last row shouldn't have a bottom border */
+  .custom-table-row:last-child {
+    border-bottom: none;
+  }
+  
+  /* Customize ListGroup Item on Hover */
+  .custom-table-row:hover {
+    background-color: rgba(0, 0, 255, 0.2);
+  }
+  
+  /* Style for buttons */
+  .custom-table-row .btn {
+    color: white;
+    border: none;
+  }
+  
+  /* Ensuring the buttons stand out */
+  .btn-warning {
+    background-color: #ffcc00;
+  }
+  
+  .btn-danger {
+    background-color: #ff4444;
+  }
+  

@@ -1,0 +1,53 @@
+.footer-wrapper {
+    background-color: black; /* Footer background */
+    color: white; 
+  }
+  
+  .footer-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 130px;
+     /* Adjust height */
+     margin-left: 10px;
+  }
+  
+  .footer-logo {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .social-icons {
+    gap: 10px; /* Space between icons */
+  }
+  
+  .social-icon {
+    display: inline-block;
+    background-color: black; /* Icon background */
+    color: white; /* Icon text color */
+    padding: 10px;
+    border-radius: 50%; /* Circular icons */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: gray; /* Hover background */
+    color: white;
+  }
+  
+  .fo-head {
+    color: blue; /* Heading color */
+  }
+  
+  .footer-copyright {
+    background-color:black; /* Slightly lighter black */
+    color: #ccc; /* Lighter text color */
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px; /* Smaller text */
+  }
+  

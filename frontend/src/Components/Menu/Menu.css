@@ -1,0 +1,86 @@
+.menu {
+    background-image: url('../../images/menutextback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 100%; /* Full width */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .buttons{
+    padding: 12px 24px;      /* Add padding to increase button size */
+    font-size: 16px;         /* Set font size for button text */
+    cursor: pointer;        /* Make pointer change to hand on hover */
+    border: 1px solid blue;  /* Blue border for box style */
+    background-color: black; /* Black background color inside the button */
+    color: white;            /* White text color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 10px; /* Add space between buttons */
+    font-weight: 700;
+    border-radius: none;
+  }
+  
+  button:hover {
+    background-color: blue;  /* Blue background on hover */
+    color: white;             /* Keep text white on hover */
+  }
+
+  .Listmenu{
+    background-image: url('../../images/listimg3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%; /* Full width */
+     /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; 
+
+  }
+  .box {
+    width: 99%; /* Width of the box */
+    background-color: black; /* White background color */
+    border: 1px solid white;
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin-left: 8%;
+    margin-top: 8%;
+  }
+  
+  .box ul {
+    list-style-type: none; /* Remove default list bullets */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .box li {
+    padding: 10px 0; /* Space between list items */
+    border-bottom: 1px solid #ddd; /* Divider between items */
+    font-size: 16px; /* Font size for list items */
+    color: #333; /* Text color */
+  }
+  
+  .box li:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  
+  
+  /* Price styling */
+  .price {
+    font-weight: bold;
+    color: white; /* Yellow color for price */
+  }
+  

@@ -1,0 +1,20 @@
+.logo {
+  max-height: 50px;
+  max-width: 150px; /* Adjust logo size */
+}
+
+.navbar-nav .nav-link {
+  font-size: 16px; /* Adjust font size */
+  font-weight: 500;
+  color: #fff; /* Default link color */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00bcd4; /* Change link color on hover */
+}
+
+.navbar-nav .nav-link.active {
+  color: #00bcd4; /* Active link color */
+  font-weight: bold;
+}

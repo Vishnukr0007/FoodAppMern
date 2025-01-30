@@ -1,0 +1,21 @@
+body{
+    background: black;
+}
+
+/* Add soft shadows and improve card aesthetics */
+.shadow-xl {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  .transition-transform {
+    transition: transform 0.3s ease-in-out;
+  }
+
+.card-title-hover:hover,
+.card-text-hover:hover {
+  cursor: pointer;
+}

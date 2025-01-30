@@ -42,7 +42,7 @@ function Admenu() {
       if (editMode) {
         // Update menu item
         const response = await axios.put(
-          `http://localhost:5000/api/menu/${currentMenuItem._id}`,
+          `${Base_Url }/api/menu/${currentMenuItem._id}`,
           newMenuItem,
           {
             headers: {
@@ -58,7 +58,7 @@ function Admenu() {
         );
       } else {
         // Add new menu item
-        const response = await axios.post("http://localhost:5000/api/menu", newMenuItem, {
+        const response = await axios.post(`${Base_Url} /api/menu`, newMenuItem, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -79,7 +79,7 @@ function Admenu() {
   // Handle delete menu item
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/menu/${id}`);
+      await axios.delete(`${Base_Url }/api/menu/${id}`);
       setMenuItems((prevItems) => prevItems.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error deleting menu item:", error);

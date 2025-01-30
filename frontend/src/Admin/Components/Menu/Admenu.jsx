@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Base_Url } from "../../../Urls";
+
 function Admenu() {
   const [menuItems, setMenuItems] = useState([]); // State to hold menu items
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +12,7 @@ function Admenu() {
   const [currentMenuItem, setCurrentMenuItem] = useState(null); // Current item being edited/added
   const [newMenuItem, setNewMenuItem] = useState({ name: "", image: "", description: "" });
   const navigate = useNavigate();
+
   // Fetch menu items on component mount
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -42,7 +44,7 @@ function Admenu() {
       if (editMode) {
         // Update menu item
         const response = await axios.put(
-          `${Base_Url }/api/menu/${currentMenuItem._id}`,
+          `${Base_Url}/api/menu/${currentMenuItem._id}`,
           newMenuItem,
           {
             headers: {
@@ -58,13 +60,13 @@ function Admenu() {
         );
       } else {
         // Add new menu item
-        const response = await axios.post(`${Base_Url} /api/menu`, newMenuItem, {
+        const response = await axios.post(`${Base_Url}/api/menu`, newMenuItem, {
           headers: {
             "Content-Type": "application/json",
           },
         });
 
-        setMenuItems([...menuItems, response.data.menuItem]); // Add new menu item to the state
+        setMenuItems((prevItems) => [...prevItems, response.data.menuItem]); // Add new menu item to the state
       }
 
       setNewMenuItem({ name: "", image: "", description: "" });
@@ -79,7 +81,7 @@ function Admenu() {
   // Handle delete menu item
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${Base_Url }/api/menu/${id}`);
+      await axios.delete(`${Base_Url}/api/menu/${id}`);
       setMenuItems((prevItems) => prevItems.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error deleting menu item:", error);
@@ -93,12 +95,10 @@ function Admenu() {
     setCurrentMenuItem(menuItem);
     setShowModal(true);
   };
-  
+
   const handleCardClick = (menuItem) => {
     navigate(`/menulist/${menuItem._id}`, { state: { menuName: menuItem.name } });
   };
-
-
 
   return (
     <Container className="py-5">
@@ -106,30 +106,26 @@ function Admenu() {
       <Row className="g-4">
         {menuItems.map((item) => (
           <Col xs={12} sm={6} md={4} lg={3} key={item._id}>
-            <Card className="text-center shadow-sm"
-            >
-            
+            <Card className="text-center shadow-sm">
               <Card.Img
                 variant="top"
                 src={item.image}
                 alt={item.name}
                 className="p-3 rounded"
-                onClick={() => handleCardClick(item)} 
-            style={{ cursor: "pointer" }}
+                onClick={() => handleCardClick(item)}
+                style={{ cursor: "pointer" }}
               />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>{item.description}</Card.Text>
                 <Button variant="warning" size="sm" onClick={() => handleEdit(item)} className="me-2">
-    <FaEdit /> {/* Edit Icon */}
-  </Button>
-  <Button variant="danger" size="sm" onClick={() => handleDelete(item._id)}>
-    <FaTrash /> {/* Delete Icon */}
-  </Button>
+                  <FaEdit /> {/* Edit Icon */}
+                </Button>
+                <Button variant="danger" size="sm" onClick={() => handleDelete(item._id)}>
+                  <FaTrash /> {/* Delete Icon */}
+                </Button>
               </Card.Body>
-   
             </Card>
-      
           </Col>
         ))}
 
